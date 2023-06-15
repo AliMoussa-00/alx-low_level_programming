@@ -1,5 +1,9 @@
 #include <stdio.h>
-/*this is my first c program with ALX*/
+/**
+ * main - Entry point of the program.
+ *
+ * Return: always 0
+ */
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
