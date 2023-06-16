@@ -19,6 +19,7 @@ int main(void)
 			{
 				putchar(n + '0');
 				putchar(k + '0');
+				putchar(y + '0');
 				if (n != 7 || k != 8 || y != 9)
 				{
 					putchar(',');
