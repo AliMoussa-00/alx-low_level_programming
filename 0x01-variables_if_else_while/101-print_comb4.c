@@ -14,7 +14,7 @@ int main(void)
 		k = n + 1;
 		while (k <= 8)
 		{
-			y = n + k + 1;
+			y = k + 1;
 			while (y <= 9)
 			{
 				putchar(n + '0');
