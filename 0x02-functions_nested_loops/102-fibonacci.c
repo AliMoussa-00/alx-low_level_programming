@@ -7,17 +7,17 @@
  */
 int main(void)
 {
-	int i = 3, j = 4, sum = 0, p = 0, pp = 0;
+	int i = 3, j = 4, sum = 0, p = 2, pp = 1;
 
 	while (i <= 50)
 	{
-		p = i - 1;
-		pp = i - 2;
-
-		sum += p + pp;
+		sum = sum + p + pp;
 		printf("%d", sum);
 		if (j != 51)
 			printf(", ");
+
+		pp = p;
+		p = sum;
 		j++;
 		i++;
 	}
