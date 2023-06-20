@@ -7,7 +7,9 @@
  */
 int main(void)
 {
-	int i = 3, j = 4, sum = 0, p = 2, pp = 1;
+	int i = 3, j = 4;
+
+	unsigned int sum = 0, pp = 2, p = 3;
 
 	printf("1, 2, ");
 
