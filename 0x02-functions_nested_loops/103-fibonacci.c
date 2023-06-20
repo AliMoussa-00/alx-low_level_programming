@@ -7,9 +7,7 @@
  */
 int main(void)
 {
-	int i = 4000000;
-
-	unsigned long sum = 0, pp = 1, p = 2;
+	unsigned long sum = 0, pp = 1, p = 2, i = 4000000;
 
 	while (sum <= i)
 	{
