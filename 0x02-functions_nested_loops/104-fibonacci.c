@@ -16,7 +16,7 @@ int main(void)
 	while (i <= 98)
 	{
 		sum = p + pp;
-		printf("%d", (in) sum);
+		printf("%d", (int) sum);
 		if (j != 99)
 			printf(", ");
 
