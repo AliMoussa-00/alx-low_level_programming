@@ -13,7 +13,7 @@ int main(void)
 
 	printf("1, 2, ");
 
-	while (i <= 50)
+	while (i < 50)
 	{
 		sum = p + pp;
 		printf("%lu", sum);
