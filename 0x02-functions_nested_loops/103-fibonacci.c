@@ -9,7 +9,7 @@ int main(void)
 {
 	unsigned long sum = 0, s = 0, pp = 1, p = 2, i = 4000000;
 
-	while (sum <= i)
+	while (sum < i)
 	{
 		sum = p + pp;
 		if (sum % 2 == 0)
