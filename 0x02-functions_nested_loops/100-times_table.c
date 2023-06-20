@@ -1,7 +1,5 @@
 #include "main.h"
-
-#include "main.h"
-
+#include <stdio.h>
 /**
 * print_times_table - prints the n times table, starting with 0.
 * @n: number of multiplication
@@ -23,31 +21,15 @@ void print_times_table(int n)
 			{
 				int k = i * j;
 
-				_putchar(',');
-				_putchar(' ');
-
+				printf(", ");
 				if (k <= 9)
-				{
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(k + '0');
-				}
+					printf("  %c", k);
 				else if (k <= 99)
-				{
-					_putchar(' ');
-					_putchar((k / 10) + '0');
-					_putchar((k % 10) + '0');
-				}
+					printf(" %c%c", (k / 10), (k % 10));
 				else
-				{
-					_putchar((k / 100) + '0');
-					_putchar(((k % 100)/10) + '0');
-					_putchar(((k % 100)%10) + '0');
-				}
-
+					printf("%c%c%c\n", (k / 100), ((k % 100) / 10), ((k % 100) % 10));
 				j++;
 			}
-			_putchar('\n');
 			i++;
 		}
 	}
