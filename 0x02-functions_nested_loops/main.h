@@ -17,4 +17,11 @@ int _putchar(char c);
  */
 void print_alphabet(void);
 
+/**
+ * print_alphabet_x10 - 10 x alphabets
+ *
+ * Return: void
+ */
+void print_alphabet_x10(void);
+
 #endif
