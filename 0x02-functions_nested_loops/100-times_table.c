@@ -27,7 +27,8 @@ void print_times_table(int n)
 				else if (k <= 99)
 					printf(" %d%d", (k / 10), (k % 10));
 				else
-					printf("%d%d%d\n", (k / 100), ((k % 100) / 10), ((k % 100) % 10));
+					printf("%d%d%d", (k / 100), ((k % 100) / 10), ((k % 100) % 10));
+				printf("\n");
 				j++;
 			}
 			i++;
