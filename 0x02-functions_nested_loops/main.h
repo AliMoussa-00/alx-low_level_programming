@@ -10,4 +10,11 @@
  */
 int _putchar(char c);
 
+/**
+ *print_alphabet - prints out alphabet
+ *
+ * Return: nothing.
+ */
+void print_alphabet(void);
+
 #endif
