@@ -32,10 +32,16 @@ void print_times_table(int n)
 					_putchar(' ');
 					_putchar(k + '0');
 				}
-				else
+				else if (k <= 99)
 				{
 					_putchar((k / 10) + '0');
 					_putchar((k % 10) + '0');
+				}
+				else
+				{
+					_putchar((k / 100) + '0');
+					_putchar(((k % 100)/10) + '0');
+					_putchar(((k % 100)%10) + '0');
 				}
 
 				j++;
