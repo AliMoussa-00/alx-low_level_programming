@@ -28,9 +28,9 @@ void print_times_table(int n)
 					printf(" %d%d", (k / 10), (k % 10));
 				else
 					printf("%d%d%d", (k / 100), ((k % 100) / 10), ((k % 100) % 10));
-				printf("\n");
 				j++;
 			}
+			printf("\n");
 			i++;
 		}
 	}
