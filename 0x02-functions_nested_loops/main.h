@@ -77,4 +77,13 @@ void jack_bauer(void);
 * Return: value of the last digit.
 */
 void times_table(void);
+
+/**
+* add - adds two integers and returns the result.
+* @int: the number to add
+* @int: the second number to add
+*
+* Return: value of the addition.
+*/
+int add(int, int);
 #endif
