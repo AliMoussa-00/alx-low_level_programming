@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-	int i = 3, j = 4;
+	int i = 0, j = 1;
 
-	unsigned long sum = 0, pp = 2, p = 3;
+	unsigned long sum = 0, pp = 1, p = 2;
 
 	printf("1, 2, ");
 
