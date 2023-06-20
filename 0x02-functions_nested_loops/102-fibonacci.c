@@ -16,7 +16,7 @@ int main(void)
 
 		sum += p + pp;
 		printf("%d", sum);
-		if (j != 50)
+		if (j != 51)
 			printf(", ");
 		j++;
 		i++;
