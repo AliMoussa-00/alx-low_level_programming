@@ -16,18 +16,17 @@ void print_times_table(int n)
 		{
 			int j = 1;
 
-			_putchar('0');
-			while (j <= n)
+			printf("0");
+			while (j < n)
 			{
 				int k = i * j;
 
-				printf(", ");
 				if (k <= 9)
-					printf("  ");
-				if (k <= 99 && k > 9)
-					printf(" ");
-
-				printf("%d", k);
+					printf(",   %d", k);
+				else if (k <= 99)
+					printf(",  %d", k);
+				else
+					printf(", ", k);
 				j++;
 			}
 			printf("\n");
