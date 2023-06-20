@@ -23,11 +23,11 @@ void print_times_table(int n)
 
 				printf(", ");
 				if (k <= 9)
-					printf("  %d", k);
+					printf("  ");
 				else if (k <= 99)
-					printf(" %d%d", (k / 10), (k % 10));
-				else
-					printf("%d%d%d", (k / 100), ((k % 100) / 10), ((k % 100) % 10));
+					printf(" ");
+
+				printf("%d, k");
 				j++;
 			}
 			printf("\n");
