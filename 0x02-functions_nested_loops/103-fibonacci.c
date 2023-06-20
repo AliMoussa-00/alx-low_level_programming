@@ -15,7 +15,6 @@ int main(void)
 			sum = p + pp;
 		pp = p;
 		p = sum;
-		i++;
 	}
 	printf("%lu\n", sum);
 	return (0);
