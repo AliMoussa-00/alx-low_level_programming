@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int i = 3, sum = 0, p = 0, pp = 0;
+	int i = 3, j = 4, sum = 0, p = 0, pp = 0;
 
 	while (i <= 50)
 	{
@@ -16,6 +16,9 @@ int main(void)
 
 		sum += p + pp;
 		printf("%d", sum);
+		if (j != 50)
+			printf(", ");
+		j++;
 		i++;
 	}
 	printf("\n");
