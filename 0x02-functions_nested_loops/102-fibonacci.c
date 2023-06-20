@@ -17,7 +17,7 @@ int main(void)
 	{
 		sum = p + pp;
 		printf("%lu", sum);
-		if (j != 51)
+		if (j != 50)
 			printf(", ");
 
 		pp = p;
