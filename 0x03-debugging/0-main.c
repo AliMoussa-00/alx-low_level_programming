@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
-* positive_or_negative - test if nulber is positive.
-* @i: number to test
+* main - entry point.
 *
-* Return: void.
+* Return: 0.
 */
-void positive_or_negative(int i)
+void main(void)
 {
 	int i;
 
