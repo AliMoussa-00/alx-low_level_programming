@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
 * main - entry point.
@@ -10,23 +11,14 @@ int main(void)
 {
 	long int num = 612852475143;
 
+	double square = sqrt(num);
+
 	int largest_factor = 0, i;
 
-	while (num % 2 == 0)
+	for (i = 1; i <= square; i++)
 	{
-		largest_factor = 2;
-
-		num /= 2;
-	}
-
-	for (i = 3; i * i <= num; i += 2)
-	{
-		while (num % i == 0)
-		{
-			largest_factor = i;
-
-			num /= i;
-		}
+		if (num % i == 0)
+			largest_factor = num / i;
 	}
 
 	printf("%d\n", largest_factor);
