@@ -64,4 +64,13 @@ void print_line(int n);
 */
 void print_diagonal(int n);
 
+/**
+* print_square -   a function that draws a diagonal line on the terminal.
+* @size: dim of square
+*
+* Return: void.
+*/
+
+void print_square(int size);
+
 #endif
