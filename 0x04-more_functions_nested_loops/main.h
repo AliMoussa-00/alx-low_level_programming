@@ -48,4 +48,12 @@ void print_most_numbers(void);
 */
 void more_numbers(void);
 
+/**
+* print_line -  a function that draws a straight line in the terminal.
+* @n: num of chars
+*
+* Return: void.
+*/
+void print_line(int n);
+
 #endif
