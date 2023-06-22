@@ -81,4 +81,11 @@ void print_square(int size);
 */
 void print_triangle(int size);
 
+/**
+* print_number - print_number.
+* @n: num to print
+*
+* Return: void.
+*/
+void print_number(int n);
 #endif
