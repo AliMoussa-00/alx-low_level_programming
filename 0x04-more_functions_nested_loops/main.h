@@ -56,4 +56,12 @@ void more_numbers(void);
 */
 void print_line(int n);
 
+/**
+* print_diagonal -   a function that draws a diagonal line on the terminal.
+* @n: num of chars
+*
+* Return: void.
+*/
+void print_diagonal(int n);
+
 #endif
