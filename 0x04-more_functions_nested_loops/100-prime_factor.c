@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	long long int num = 612852475143;
+	long int num = 612852475143;
 
 	int largest_factor = 0, i;
 
@@ -29,7 +29,7 @@ int main(void)
 		}
 	}
 
-	printf("%d", largest_factor);
+	printf("%d\n", largest_factor);
 
 	return (0);
 }
