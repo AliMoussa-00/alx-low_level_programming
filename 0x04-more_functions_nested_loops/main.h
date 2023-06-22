@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+int _putchar(char c);
 /**
 * _isupper - a function that checks for uppercase character.
 * @c: the char to check
@@ -26,5 +27,11 @@ int _isdigit(int c);
 */
 int mul(int a, int b);
 
+/**
+* print_numbers - Write a function that prints the numbers, from 0 to 9.
+*
+* Return: void.
+*/
+void print_numbers(void);
 
 #endif
