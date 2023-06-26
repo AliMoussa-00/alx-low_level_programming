@@ -76,4 +76,13 @@ void puts2(char *str);
 * Return: void.
 */
 void puts_half(char *str);
+/**
+* print_array -  prints half of a string.
+* @a: pointer to int
+* @n: numbers to print
+*
+* Return: void.
+*/
+void print_array(int *a, int n);
+
 #endif
