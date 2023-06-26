@@ -15,11 +15,9 @@ void puts_half(char *str)
 	else
 		k = ((size - 1) / 2) + 1;
 
-	printf("%d\n", k);
-
 	for (i = k; i < size; i++)
 	{
-		putchar(*(str + i));
+		_putchar(*(str + i));
 	}
-	putchar('\n');
+	_putchar('\n');
 }
