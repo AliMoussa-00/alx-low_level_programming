@@ -41,4 +41,13 @@ int _strlen(char *s);
 */
 
 void _puts(char *str);
+
+/**
+* print_rev - function that prints a string, followed by a new line.
+* @s: pointer to string
+*
+* Return: void.
+*/
+
+void print_rev(char *s);
 #endif
