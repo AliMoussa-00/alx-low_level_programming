@@ -84,5 +84,12 @@ void puts_half(char *str);
 * Return: void.
 */
 void print_array(int *a, int n);
-
+/**
+* _strcpy -  prints half of a string.
+* @dest: pointer to destination
+* @src: pointer to source
+*
+* Return: pointer to string.
+*/
+char *_strcpy(char *dest, char *src);
 #endif
