@@ -10,11 +10,19 @@ int _putchar(char c);
 
 /**
 * reset_to_98 - print_number.
-* @*n: pointer to int
+* @n: pointer to int
 *
 * Return: void.
 */
 
 void reset_to_98(int *n);
+/**
+* swap_int - print_number.
+* @a: pointer to int
+* @b: pointer to int
+*
+* Return: void.
+*/
 
+void swap_int(int *a, int *b);
 #endif
