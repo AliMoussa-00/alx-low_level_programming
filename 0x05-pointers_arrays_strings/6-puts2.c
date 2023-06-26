@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
 * rev_string - prints every other character of a string.
 * @str: pointer to string
