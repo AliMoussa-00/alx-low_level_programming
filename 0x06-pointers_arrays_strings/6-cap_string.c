@@ -44,7 +44,6 @@ char *cap_string(char *s)
 		}
 		if (start != 0)
 			start = 0;
-
 		c++;
 	}
 
