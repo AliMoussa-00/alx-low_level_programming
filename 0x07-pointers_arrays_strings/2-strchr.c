@@ -21,6 +21,10 @@ char *_strchr(char *s, char c)
 		}
 		x++;
 	}
+	if (*x == '\0' && (*x == c))
+	{
+		f = x;
+	}
 
 	return (f);
 }
