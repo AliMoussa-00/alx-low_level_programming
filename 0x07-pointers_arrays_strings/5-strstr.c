@@ -14,7 +14,10 @@ char *_strstr(char *haystack, char *needle)
 	int i = 0, k;
 
 	while (*y != '\0')
+	{
 		i++;
+		y++;
+	}
 	y = needle;
 	while (*y != '\0')
 	{
