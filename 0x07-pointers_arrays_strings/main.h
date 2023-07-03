@@ -66,4 +66,13 @@ void print_chessboard(char (*a)[8]);
  */
 void print_diagsums(int *a, int size);
 
+/**
+ * _strstr - function that locates a substring.
+ * @haystack: pointer to string.
+ * @needle: pointer to substring.
+ *
+ * Return: pointer to substring.
+ */
+char *_strstr(char *haystack, char *needle);
+
 #endif
