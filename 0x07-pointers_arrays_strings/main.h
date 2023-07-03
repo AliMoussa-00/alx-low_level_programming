@@ -75,4 +75,13 @@ void print_diagsums(int *a, int size);
  */
 char *_strstr(char *haystack, char *needle);
 
+/**
+* set_string - function that locates a substring.
+* @s: pointer to pointer to string.
+* @to: pointer to string.
+*
+* Return: void.
+*/
+void set_string(char **s, char *to);
+
 #endif
