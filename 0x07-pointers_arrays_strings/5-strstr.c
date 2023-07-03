@@ -19,30 +19,25 @@ char *_strstr(char *haystack, char *needle)
 		y++;
 	}
 	y = needle;
-	while (*y != '\0')
-	{
-		while (*x != '\0')
-		{
-			if (*x == *y)
-			{
-				char *a = x, *b = y, *f = x;
 
-				k = 0;
-				while (*a != '\0' && *b != '\0')
-				{
-					if (*a == *b)
-						k++;
-					else
-						break;
-					a++;
-					b++;
-				}
-				if (i == k)
-					return (f);
+	while (*x != '\0')
+	{
+		if (*x == *y)
+		{
+			char *a = x, *b = y, *f = x;
+
+			k = 0;
+			while (*a != '\0' && *b != '\0' && *a == *b)
+			{
+				k++;
+				a++;
+				b++;
 			}
-			x++;
+			if (k == i)
+				return (f);
 		}
-		y++;
+		x++;
 	}
+
 	return (NULL);
 }
