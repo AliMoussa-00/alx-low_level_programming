@@ -1,6 +1,5 @@
 #include "main.h"
 #include <string.h>
-#include <stdio.h>
 
 /**
  * is_pal - is string palindrome.
@@ -12,7 +11,6 @@
  */
 int is_pal(char *s, int i, int size)
 {
-	printf("s[%d] = %c, s[%d] = %c\n", i, s[i], size, s[size]);
 	if (i >= size)
 		return (1);
 
