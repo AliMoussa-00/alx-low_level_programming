@@ -7,7 +7,7 @@
  */
 void _puts_rev(char *s)
 {
-	if (*s = '\0')
+	if (*s == '\0')
 		_puts_rev(++s);
 
 	_putchar(*s);
