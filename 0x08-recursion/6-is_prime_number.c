@@ -7,7 +7,7 @@
  *
  * Return: int.
  */
-int is_prime(int n, int i);
+int is_prime(int n, int i)
 {
 	if (n == i)
 		return (1);
