@@ -3,11 +3,20 @@
 /**
  * is_prime - is prime number.
  * @n: number.
+ * @i: iterator
  *
  * Return: int.
  */
 int is_prime(int n, int i);
+{
+	if (n == i)
+		return (1);
 
+	if (n % i == 0)
+		return (0);
+
+	return (is_prime(n, i + 1));
+}
 /**
  * is_prime_number - is prime number.
  * @n: number.
@@ -25,22 +34,4 @@ int is_prime_number(int n)
 	if (n == 2)
 		return (1);
 	return (is_prime(n, 2));
-}
-
-
-/**
- * is_prime - is prime number.
- * @n: number.
- *
- * Return: int.
- */
-int is_prime(int n, int i)
-{
-	if (n == i)
-		return (1);
-
-	if (n % i == 0)
-		return (0);
-
-	return (is_prime(n, i + 1));
 }
