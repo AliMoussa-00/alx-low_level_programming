@@ -4,24 +4,6 @@
 
 
 /**
- * is_digit - check if valid num.
- * @s: pointer to string..
- *
- * Return: if success 1, else 0.
- */
-
-int is_digit(char *s)
-{
-	while (*s != '\0')
-	{
-		if (*s < '0' || *s > '9')
-			return (0);
-		s++;
-	}
-
-	return (1);
-}
-/**
  * main - prints the additions of positive nums.
  * @argc: number of args.
  * @argv: argument value.
@@ -31,6 +13,17 @@ int is_digit(char *s)
 int main(int argc, char **argv)
 {
 	int i, sum = 0;
+	char *s = *argv;
+
+	while (*s != '\0')
+	{
+		if (*s < '0' || *s > '9')
+		{
+			printf("Error\n");
+			return (1);
+		}
+		s++;
+	}
 
 	if (argc == 1)
 	{
@@ -40,11 +33,6 @@ int main(int argc, char **argv)
 
 	for (i = 1; i < argc; i++)
 	{
-		if (!(is_digit(argv[i])))
-		{
-			printf("Error\n");
-			return (1);
-		}
 		sum += atoi(argv[i]);
 	}
 
