@@ -38,4 +38,13 @@ char *str_concat(char *s1, char *s2);
  */
 int **alloc_grid(int width, int height);
 
+/**
+ * argstostr -  concatenates all the arguments of your program.
+ * @ac: args size .
+ * @av: args value.
+ *
+ * Return: pointer to array.
+ */
+char *argstostr(int ac, char **av);
+
 #endif
