@@ -56,7 +56,7 @@ char **strtow(char *str)
 	char **s;
 	int i, j, words, letters, l, n;
 
-	if (str == NULL || strlen(str) == 0)
+	if (str == NULL || strlen(str) == 0 || (strlen(str) == 1 && *str == ' '))
 	{
 		return (NULL);
 	}
