@@ -47,4 +47,12 @@ int **alloc_grid(int width, int height);
  */
 char *argstostr(int ac, char **av);
 
+/**
+ * strtow -  function that splits a string into word.
+ * @str: pointer to string
+ *
+ * Return: pointer to array.
+ */
+char **strtow(char *str);
+
 #endif
