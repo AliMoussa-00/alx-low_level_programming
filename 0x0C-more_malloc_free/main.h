@@ -39,4 +39,14 @@ void *_calloc(unsigned int nmemb, unsigned int size);
  */
 int *array_range(int min, int max);
 
+/**
+ * realloc -  reallocates a memory block.
+ * @ptr: pointer to memory block.
+ * @old_size: old size of memory block.
+ * @new_size: new size of memory block.
+ *
+ * Return: pointer to memory block.
+ */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+
 #endif
