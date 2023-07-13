@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * realloc -  reallocates a memory block.
+ * _realloc -  reallocates a memory block.
  * @ptr: pointer to memory block.
  * @old_size: old size of memory block.
  * @new_size: new size of memory block.
