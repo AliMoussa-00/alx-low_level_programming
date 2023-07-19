@@ -58,13 +58,6 @@ int op_div(int a, int b);
  */
 int op_mod(int a, int b);
 
-/**
- * get_op_func - return pointer to the right function.
- * 
- * @s: operator.
- *
- * Return: the right function
- */
 int (*get_op_func(char *s))(int, int);
 
 #endif
