@@ -17,8 +17,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	if (separator == NULL)
 		separator = "";
 
-	if (n == 0)
+	if (!n)
+	{
+		printf("\n");
 		return;
+	}
 
 	va_start(ap, n);
 
