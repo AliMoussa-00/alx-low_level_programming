@@ -1,4 +1,4 @@
-section 	.text
+section 	.text		; setting a section
 	extern printf		; Declare the printf function from C library
 	global main		; Define the entry point of the program
 
