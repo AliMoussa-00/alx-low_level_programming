@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 
-void statrt_up_func(void) __attribute__((constructor));
-
+void start_up_func(void) __attribute__((constructor));
 /**
  * start_up_func - executes before main func
  *
