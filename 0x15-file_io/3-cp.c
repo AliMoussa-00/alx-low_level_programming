@@ -34,32 +34,6 @@ void open_to(int *to, int *from, char *name)
 }
 
 /**
- * read_write_error - if there is an error while reading or writting.
- * @code: code to exit with
- * @from: pointer to the fisrt FD
- * @to: pointer to the second FD
- * @name: file name
- * Return: void.
- */
-void read_write_error(int code, int *from, int *to, char *name)
-{
-	if (code == 98)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", name);
-		close(*from);
-		close(*to);
-		exit(98);
-	}
-	if (code == 99)
-	{
-		dprintf(2, "Error: Can't write to %s\n", name);
-		close(*from);
-		close(*to);
-		exit(99);
-	}
-}
-
-/**
  * close_files - to call when closing files
  * @from: pointer to the fisrt FD
  * @to: pointer to the second FD
@@ -78,6 +52,25 @@ void close_files(int *from, int *to)
 		exit(100);
 	}
 }
+/**
+ * read_write_error - if there is an error while reading or writting.
+ * @code: code to exit with
+ * @from: pointer to the fisrt FD
+ * @to: pointer to the second FD
+ * @name: file name
+ * Return: void.
+ */
+void read_write_error(int code, int *from, int *to, char *name)
+{
+	if (code == 98)
+		dprintf(2, "Error: Can't read from file %s\n", name);
+	if (code == 99)
+		dprintf(2, "Error: Can't write to %s\n", name);
+
+	close_files(from, to);
+	exit(code);
+}
+
 /**
  * main - check the code for ALX School students.
  *
