@@ -22,13 +22,13 @@ void open_from(int *from, char *name)
  * @name: file name
  * Return: void.
  */
-void open_to(int *to, char *name)
+void open_to(int *to, int *from, char *name)
 {
 	*to = open(name, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (*to == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", name);
-		/**close(*from);**/
+		close(*from);
 		exit(99);
 	}
 }
@@ -42,16 +42,11 @@ void open_to(int *to, char *name)
 void close_files(int *from, int *to)
 {
 	if (close(*from) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", *from);
-		exit(100);
-	}
+		dprintf(2, "Error: Can't close fd %i\n", *from);
 	if (close(*to) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", *to);
-		exit(100);
-	}
+		dprintf(2, "Error: Can't close fd %i\n", *to);
 
+	exit(100);
 }
 /**
  * read_write_error - if there is an error while reading or writting.
@@ -61,14 +56,14 @@ void close_files(int *from, int *to)
  * @name: file name
  * Return: void.
  */
-void read_write_error(int code, char *name)
+void read_write_error(int code, int *from, int *to, char *name)
 {
 	if (code == 98)
 		dprintf(2, "Error: Can't read from file %s\n", name);
 	if (code == 99)
 		dprintf(2, "Error: Can't write to %s\n", name);
 
-	/**close_files(from, to);**/
+	close_files(from, to);
 	exit(code);
 }
 
@@ -92,17 +87,17 @@ int main(int ac, char **av)
 
 	open_from(&from, av[1]);
 
-	open_to(&to, av[2]);
+	open_to(&to, &from, av[2]);
 
 	while (r == 1024)
 	{
 		r = read(from, txt, 1024);
 		if (r == -1)
-			read_write_error(98, av[1]);
+			read_write_error(98, &from, &to, av[1]);
 
 		r = write(to, txt, r);
 		if (r == -1)
-			read_write_error(99, av[2]);
+			read_write_error(99, &from, &to, av[2]);
 	}
 
 	close_files(&from, &to);
