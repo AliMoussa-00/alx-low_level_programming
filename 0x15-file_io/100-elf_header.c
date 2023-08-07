@@ -2,6 +2,27 @@
 #include <elf.h>
 
 /**
+ * check_elf - check if the file is an ELF
+ * @header: ELF header structure
+ * @name: name of the file
+ * Return: void.
+ */
+void check_elf(Elf64_Ehdr header, char *name)
+{
+	if (header.e_ident[EI_MAG0] == ELFMAG0 &&
+			header.e_ident[EI_MAG1] == ELFMAG1 &&
+			header.e_ident[EI_MAG2] == ELFMAG2 &&
+			header.e_ident[EI_MAG3] == ELFMAG3)
+	{
+		printf("ELF Header:\n");
+	}
+	else
+	{
+		dprintf(STDERR_FILENO, "Not ELF file: %s\n", name);
+		exit(98);
+	}
+}
+/**
  * print_Magic - print the Magic section from header
  * @header: ELF header structure
  * Return: void
@@ -34,6 +55,9 @@ void print_Class(Elf64_Ehdr header)
 		case ELFCLASSNONE:
 			printf("none");
 			break;
+		default:
+			printf("<unknown: %x>",
+					header.e_ident[EI_CLASS]);
 	}
 	printf("\n");
 }
@@ -56,6 +80,9 @@ void print_Data(Elf64_Ehdr header)
 		case ELFDATANONE:
 			printf("none");
 			break;
+		default:
+			printf("<unknown: %x>",
+					header.e_ident[EI_CLASS]);
 	}
 	printf("\n");
 }
@@ -102,7 +129,8 @@ void print_osabi_2(Elf64_Ehdr header)
 			printf("ARM");
 			break;
 		default:
-			printf("<unknown: %x>", header.e_ident[EI_OSABI]);
+			printf("<unknown: %x>",
+					header.e_ident[EI_OSABI]);
 			break;
 	}
 }
@@ -168,8 +196,15 @@ void print_abi_ver(Elf64_Ehdr header)
  */
 void print_type(Elf64_Ehdr header)
 {
+	unsigned int type = header.e_type;
+
+
 	printf("  Type:                              ");
-	switch (header.e_type)
+	
+	if (header.e_ident[EI_DATA] ==  ELFDATA2MSB)
+		type >>= 8;
+
+	switch (type)
 	{
 		case ET_NONE:
 			printf("NONE (None)");
@@ -187,7 +222,7 @@ void print_type(Elf64_Ehdr header)
 			printf("CORE (Core file)");
 			break;
 		default:
-			printf("<unknown> : %x", header.e_type);
+			printf("<unknown> : %x", type);
 
 	}
 	printf("\n");
@@ -200,8 +235,34 @@ void print_type(Elf64_Ehdr header)
  */
 void print_entry(Elf64_Ehdr header)
 {
-	printf("  Entry point address:               0x%02lx\n",
-			header.e_entry);
+	unsigned long int entry = header.e_entry;
+
+	printf("  Entry point address:               ");
+
+	if (header.e_ident[EI_DATA] ==  ELFDATA2MSB)
+	{
+		entry = ((entry << 8) & 0xFF00FF00) |
+			((entry >> 8) & 0xFF00FF);
+		entry = (entry << 16) | (entry >> 16);
+	}
+	if (header.e_ident[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)entry);
+
+	else
+		printf("%#lx\n", entry);
+}
+/**
+ * close_elf - closes the ELF file.
+ * @f: file to close.
+ * Return: void.
+ */
+void close_elf(ssize_t *f)
+{
+	if (close(*f) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %ld\n", *f);
+		exit(98);
+	}
 }
 /**
  * main - check the code for ALX School students.
@@ -235,18 +296,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	if (header.e_ident[EI_MAG0] == ELFMAG0 &&
-			header.e_ident[EI_MAG1] == ELFMAG1 &&
-			header.e_ident[EI_MAG2] == ELFMAG2 &&
-			header.e_ident[EI_MAG3] == ELFMAG3)
-	{
-		printf("ELF Header:\n");
-	}
-	else
-	{
-		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]);
-		exit(98);
-	}
+	check_elf(header, av[1]);
 
 	print_Magic(header);
 	print_Class(header);
@@ -257,11 +307,6 @@ int main(int ac, char **av)
 	print_type(header);
 	print_entry(header);
 
-	if (close(f) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error while closing FD: %ld\n", f);
-		exit(98);
-	}
-
+	close_elf(&f);
 	return (0);
 }
