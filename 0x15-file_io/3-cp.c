@@ -93,7 +93,7 @@ int main(int ac, char **av)
 
 	open_to(&to, &from, av[2]);
 
-	while (r == 1024)
+	while (r > 0)
 	{
 		r = read(from, txt, 1024);
 		if (r == -1)
