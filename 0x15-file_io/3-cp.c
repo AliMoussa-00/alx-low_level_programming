@@ -42,11 +42,16 @@ void open_to(int *to, int *from, char *name)
 void close_files(int *from, int *to)
 {
 	if (close(*from) == -1)
+	{
 		dprintf(2, "Error: Can't close fd %i\n", *from);
+		exit(100);
+	}
 	if (close(*to) == -1)
+	{
 		dprintf(2, "Error: Can't close fd %i\n", *to);
+		exit(100);
+	}
 
-	exit(100);
 }
 /**
  * read_write_error - if there is an error while reading or writting.
