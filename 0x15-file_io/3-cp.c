@@ -41,16 +41,12 @@ void open_to(int *to, int *from, char *name)
  */
 void close_files(int *from, int *to)
 {
-	int i, j;
-
-	i = close(*from);
-	j = close(*to);
-	if (i == -1)
+	if (close(*from) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", *from);
 		exit(100);
 	}
-	if (j == -1)
+	if (close(*to) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", *to);
 		exit(100);
