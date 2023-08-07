@@ -22,7 +22,7 @@ void open_from(int *from, char *name)
  * @name: file name
  * Return: void.
  */
-void open_to(int *to, int *from, char *name)
+void open_to(int *to, char *name)
 {
 	*to = open(name, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (*to == -1)
@@ -61,7 +61,7 @@ void close_files(int *from, int *to)
  * @name: file name
  * Return: void.
  */
-void read_write_error(int code, int *from, int *to, char *name)
+void read_write_error(int code, char *name)
 {
 	if (code == 98)
 		dprintf(2, "Error: Can't read from file %s\n", name);
@@ -92,17 +92,17 @@ int main(int ac, char **av)
 
 	open_from(&from, av[1]);
 
-	open_to(&to, &from, av[2]);
+	open_to(&to, av[2]);
 
 	while (r == 1024)
 	{
 		r = read(from, txt, 1024);
 		if (r == -1)
-			read_write_error(98, &from, &to, av[1]);
+			read_write_error(98, av[1]);
 
 		r = write(to, txt, r);
 		if (r == -1)
-			read_write_error(99, &from, &to, av[2]);
+			read_write_error(99, av[2]);
 	}
 
 	close_files(&from, &to);
