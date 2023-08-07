@@ -28,7 +28,7 @@ void open_to(int *to, int *from, char *name)
 	if (*to == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", name);
-		close(*from);
+		/**close(*from);**/
 		exit(99);
 	}
 }
@@ -43,12 +43,12 @@ void close_files(int *from, int *to)
 {
 	if (close(*from) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", *from);
+		dprintf(2, "Error: Can't close fd %d\n", *from);
 		exit(100);
 	}
 	if (close(*to) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", *to);
+		dprintf(2, "Error: Can't close fd %d\n", *to);
 		exit(100);
 	}
 
@@ -68,7 +68,7 @@ void read_write_error(int code, int *from, int *to, char *name)
 	if (code == 99)
 		dprintf(2, "Error: Can't write to %s\n", name);
 
-	close_files(from, to);
+	/**close_files(from, to);**/
 	exit(code);
 }
 
