@@ -20,14 +20,14 @@ void free_node(hash_node_t *node)
 void hash_table_delete(hash_table_t *ht)
 {
 	hash_node_t *tmp, *current;
-	unsigned long int index;
+	unsigned long int i;
 
 	if (!ht)
 		return;
 
-	for (i = 0; i < table->size; i++)
+	for (i = 0; i < ht->size; i++)
 	{
-		tmp = table->array[i];
+		tmp = ht->array[i];
 
 		while (tmp && tmp->next)
 		{
@@ -40,6 +40,6 @@ void hash_table_delete(hash_table_t *ht)
 			free_node(tmp);
 	}
 
-	free(table->array);
-	free(table);
+	free(ht->array);
+	free(ht);
 }
