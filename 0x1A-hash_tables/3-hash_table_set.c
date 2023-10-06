@@ -1,47 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * free_node - free a node of table
- * @node: the pointer to the node
- * Return: void
- */
-void free_node(hash_node_t *node)
-{
-	free(node->key);
-	free(node->value);
-	free(node);
-}
-
-/**
- * free_table - free a the entire table
- * @table: the pointer to the table
- * Return: void
- */
-void free_table(hash_table_t *table)
-{
-	hash_node_t *tmp, *current;
-	unsigned long int i;
-
-	for (i = 0; i < table->size; i++)
-	{
-		tmp = table->array[i];
-
-		while (tmp && tmp->next)
-		{
-			current = tmp;
-			tmp = tmp->next;
-			free_node(current);
-		}
-
-		if (tmp)
-			free_node(tmp);
-	}
-
-	free(table->array);
-	free(table);
-}
-
-/**
  * create_node - create a new node.
  * @key: the key of the node.
  * @value: the value of the node.
