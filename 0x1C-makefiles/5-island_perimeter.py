@@ -8,9 +8,6 @@ def island_perimeter(grid):
     to calculate the perimeter of the island
     """
 
-    if not grid or type(grid) is not list:
-        return 0
-
     p = 0
     for i in range(len(grid)):
         for j in range(len(grid[0])):
