@@ -53,7 +53,7 @@ int _advanced_search(int *array, size_t left, size_t right, int value)
 	{
 		/*chack if the previous is the same*/
 		if ((m > 0) && (array[m - 1] == value))
-			return (m - 1);
+			return (_advanced_search(array, left, m, value));
 
 		return (m);
 	}
