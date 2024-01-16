@@ -38,10 +38,10 @@ int _advanced_search(int *array, size_t left, size_t right, int value)
 
 	print_array(array, left, right);
 
-	if (left > right)
-		return (-1);
-
 	m = (left + right) / 2;
+
+	if (left == right)
+		return (array[m] == value ? (int)m : -1);
 
 	if (array[m] < value)
 		return (_advanced_search(array, m + 1, right, value));
@@ -72,7 +72,5 @@ int advanced_binary(int *array, size_t size, int value)
 	if (!array)
 		return (-1);
 
-	if ((size == 1) && (*array == value))
-		return (0);
 	return (_advanced_search(array, 0, size - 1, value));
 }
