@@ -47,7 +47,7 @@ int _advanced_search(int *array, size_t left, size_t right, int value)
 		return (_advanced_search(array, m + 1, right, value));
 
 	else if (array[m] > value)
-		return (_advanced_search(array, left, m - 1, value));
+		return (_advanced_search(array, left, m, value));
 
 	else
 	{
