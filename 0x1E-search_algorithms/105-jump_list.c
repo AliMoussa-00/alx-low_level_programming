@@ -21,7 +21,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	next = list;
 	step = sqrt(size);
 
-	while (next->next && (next->n <= value))
+	while (next->next && (next->n < value))
 	{
 		prev = next;
 		i = 0;
@@ -37,7 +37,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	printf("Value found between indexes [%ld] and [%ld]\n",
 			prev->index, next->index);
 
-	while (prev && (prev->n <= value))
+	while (prev)
 	{
 		printf("Value checked array[%ld] = [%d]\n", prev->index, prev->n);
 
